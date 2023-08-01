@@ -1,4 +1,5 @@
 # min max 찾기
+# 문법 연습
 T = int(input())
 
 for tc in range(1, T+1):

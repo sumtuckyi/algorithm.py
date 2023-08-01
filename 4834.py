@@ -13,7 +13,7 @@ for tc in range(1, T + 1):
     max_index = 0
 
     for index, cnt in enumerate(counts):
-        if cnt == max_cnt:
+        if cnt == max_cnt: # 카운팅 값이 같은 경우에는 인덱스를 비교
             if index > max_index:
                 max_index = index
         elif cnt > max_cnt:

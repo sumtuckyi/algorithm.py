@@ -8,6 +8,7 @@ for tc in range(1, T + 1):
     zeros = 1
     total = 0
     is_possible = True
+
     for i in stations:
         bus_stops[i] = 1
     print(bus_stops)
