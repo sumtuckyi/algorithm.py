@@ -1,8 +1,9 @@
 N = int(input())
+# 2차원 배열 입력 받기
 arr = [list(map(int, input().split())) for _ in range(N)]
 
-di = [1, 0, -1, 0]
-dj = [0, 1, 0, -1]
+# di = [1, 0, -1, 0]
+# dj = [0, 1, 0, -1]
 max_v = 0
 for i in range(N):
     for j in range(N):

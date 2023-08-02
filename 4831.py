@@ -41,6 +41,9 @@ for tc in range(1, T + 1):
                         cnt += 1
                         #print(f'현재 위치는 {current}입니다.')
                         break
+
+        d = 1   # while문의 실행과정을 확인하기 위한 dummy code(실행코드가 없는 경우)
+
     if is_possible:
         print(f'#{tc} {cnt}')
     else:
