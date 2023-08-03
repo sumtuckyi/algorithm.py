@@ -15,8 +15,8 @@ for tc in range(1, T + 1):
 
         total = 0
         dir_y, dir_x = y, x
+        total += board[dir_y][dir_x]
         for i, j in delta:
-            total += board[dir_y][dir_x]
             for _ in range(M - 1):
                 dir_y, dir_x = y + i, x + j
                 if 0 <= dir_y < N and 0 <= dir_x < N:

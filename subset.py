@@ -30,7 +30,7 @@ for tc in range(1, T + 1):
     subsets = []  # 모든 부분집합을 구해서 담을 리스트
 
 
-    def subset(arr):
+    def subset(arr): # 부분집합 생성함수
         for i in range(1 << 12): # 집합의 원소 수 만큼
             subset1 = [] # 개별 부분집합
             for j in range(12):
