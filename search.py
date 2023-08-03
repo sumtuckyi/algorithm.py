@@ -29,7 +29,7 @@ def binary_search(a, n, key):
     end = n - 1
 
     while start <= end:
-        mid = start + end // 2
+        mid = (start + end) // 2
         if key == a[mid]:
             return mid
         elif key > a[mid]:
@@ -40,4 +40,4 @@ def binary_search(a, n, key):
 
 array = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
-print(binary_search(array, 5, 20))
+print(binary_search(array, len(array), 90))

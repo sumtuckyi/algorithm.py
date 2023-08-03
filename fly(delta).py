@@ -4,21 +4,18 @@ for tc in range(1, T + 1):
     N, M = map(int, input().split())
     board = [list(map(int, input().split())) for _ in range(N)]
 
-    y, x = 0, 0  # 반복을 시작할 지점
-
     plus_d = [(-1, 0), (1, 0), (0, -1), (0, 1)]
     cross_d = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
-
     max_fly = 0
 
-    def catch_fly(y, x, delta):
 
+    def catch_fly(y, x, delta):
         total = 0
         dir_y, dir_x = y, x
         total += board[dir_y][dir_x]
         for i, j in delta:
-            for _ in range(M - 1):
-                dir_y, dir_x = y + i, x + j
+            for h in range(1, M):
+                dir_y, dir_x = y + h * i, x + h * j
                 if 0 <= dir_y < N and 0 <= dir_x < N:
                     total += board[dir_y][dir_x]
         return total

@@ -42,3 +42,24 @@ for tc in range(1, T + 1):
     subset(A)  # 집합 A의 모든 부분 집합을 subsets에 담기
     new_arr = [i for i in subsets if len(i) == N and sum(i) == K]  # subsets에 담긴 부분집합 중 조건을 만족하는 부분집합만 새로운 리스트에 반환
     print(f'#{tc} {len(new_arr)}')  # 조건을 만족하는 부분집합의 수 출력
+
+# 다른 풀이
+# T = int(input())
+#
+# for tc in range(1, T + 1):
+#     N, K = map(int, input().split())
+#     arr = [i for i in range(1, 12 + 1)]
+#     result = 0
+#
+#     for i in range(1 << 12):
+#         sum_sub = 0
+#         subset = []
+#         for j in range(12):
+#             if i & (1 << j):
+#                 sum_sub += arr[j]
+#                 subset.append(arr[j])
+#
+#     if len(subset) == N and sum_sub == K:
+#         result += 1
+#
+#     print(f'#{tc} {result}')
