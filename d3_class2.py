@@ -1,9 +1,11 @@
 # board = [list(map(int, input().split())) for _ in range(5)]
 # numbers = [list(map(int, input().split())) for _ in range(5)]
+# 2차원 배열을 입력받아 1차원으로 저장하기
 board = [int(num) for _ in range(5) for num in input().split()]
 numbers = [int(num) for _ in range(5) for num in input().split()]
 
 cnt = 0
+#  리스트의 길이는 모자라지만 않게 임의로 정하면 됨
 x_list = [0] * 10
 y_list = [0] * 10
 di_list1 = [0] * 10
