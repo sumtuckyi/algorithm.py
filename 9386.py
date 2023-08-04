@@ -1,3 +1,4 @@
+# 연속한 1의 개수
 T = int(input())
 
 for tc in range(1, T + 1):

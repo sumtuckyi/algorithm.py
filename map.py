@@ -1,4 +1,4 @@
-# 구간합 이용하기
+# 구간합 이용하기 - 코드포스 문제
 
 n = int(input())
 a = list(map(int, input().split()))
