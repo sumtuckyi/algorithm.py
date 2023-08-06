@@ -5,7 +5,7 @@ for tc in range(1, T + 1):
     N, K = map(int, input().split())
     board = [list(map(int, input().split())) for _ in range(N)]
     result = 0
-    cnt = 1
+    # cnt = 1
     # # 행 우선 순회
     # for i in range(N):
     #     for j in range(N-1):
@@ -24,7 +24,7 @@ for tc in range(1, T + 1):
         for j in range(N):
             if board[i][j]:
                 cnt += 1
-            if j == N - 1 or board[i][j] == 0:
+            if j == N - 1 or board[i][j] == 0:  # 각 행의 마지막열 탐색을 마쳤거나 탐색 중 0을 만나면 카운트를 확인
                 if cnt == K:
                     result += 1
                 cnt = 0

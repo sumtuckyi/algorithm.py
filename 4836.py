@@ -7,7 +7,7 @@ for tc in range(1, T + 1):
     arr = [[0] * 10 for _ in range(10)]  # 격자 생성
     cnt = 0
 
-    for area in areas:
+    for area in areas:  # 입력 좌표값에 근거하여 색칠하기
         x1, y1, x2, y2, c = area
         for k in range(x1, x2 + 1):
             for j in range(y1, y2 + 1):
@@ -17,6 +17,7 @@ for tc in range(1, T + 1):
                 # else:
                 #     arr[k][j] += 2
 
+    # 두 가지 색이 칠해진 영역의 수를 세기
     for i in range(10):
         for j in range(10):
             if arr[i][j] == 3:
