@@ -18,6 +18,7 @@ for tc in range(1, T + 1):
 
     cnt = 1  # 사과를 먹을 때마다 카운트
     dir_x, dir_y = targets[1]  # 기준점을 1번 사과의 위치로 초기화
+    # while문 안의 조건문을 그리드에 저장하여 코드의 가독성을 높일 수 있다.
     while cnt < num:
         a, b = targets[cnt + 1]  # 다음 사과의 위치
         if dir_x > a and dir_y < b:  # 제 1사분면에 다음사과가 위치
@@ -72,10 +73,12 @@ for tc in range(1, T + 1):
             else:
                 result += 3
                 direction += 3
-        cnt += 1
-        dir_x, dir_y = a, b
+        cnt += 1  # 사과를 먹음
+        dir_x, dir_y = a, b  # 플레이어 위치 이동
 
 
     print(f'#{tc} {result}')
+
+
 
 
