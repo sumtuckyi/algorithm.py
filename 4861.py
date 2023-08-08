@@ -1,3 +1,4 @@
+# 회문 찾아서 출력하기
 T = int(input())
 
 for tc in range(1, T + 1):
@@ -22,4 +23,23 @@ for tc in range(1, T + 1):
             if s1 == s1[::-1]:
                 result = s1
 
-    print(f'#{tc} {result}')    print(result)
+    print(f'#{tc} {result}')
+
+#
+def find_p(N, M, arr):
+    for i in range(N):
+        for j in range(N-M+1):
+            h = arr[i][i:i+M]
+            v = [arr[k][i] for k in range(j, j+M)]
+
+            if h == h[::-1]:
+                return h
+            if v == v[::-1]:
+                return v
+
+T = int(input())
+for tc in range(1, T + 1):
+    N, M = map(int, input().split())
+    arr = [list(input()) for _ in range(N)]
+    result = find_p(N, M, arr)
+    print(f'#{tc}', ''.join(result))
