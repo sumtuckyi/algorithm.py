@@ -18,3 +18,5 @@ for i in range(len(word)):
         result *= int(temp)
 
 print(result)
+
+# stack으로 풀기
