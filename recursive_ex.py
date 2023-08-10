@@ -75,7 +75,7 @@ def card_cnt(level):
     for i in range(5):  # 5개의 카드 중 하나를 선택
         path[level] = card[i]  # level은 함수 재귀 호출시마다 1씩 증가
         # 백트래킹 기법, 연속으로 뽑는 카드의 차이가 4 이상이면 더이상 반복문을 수행하지 않고(즉 다음에 올 카드를 고려하는 과정을 생략) 다음 카드를 선택(다음 반복으로 넘어감)
-        if int(path[level]) - int(path[level-1]) >= 4:
+        if int(path[level]) - int(path[level-1]) >= 4:  # level이 0이면 path[-1]과 대소를 비교하게됨..
             continue
         if int(path[level-1]) - int(path[level]) >= 4:
             continue
