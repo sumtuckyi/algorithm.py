@@ -47,5 +47,5 @@ def back_tracking(idx, sum):
 n, s = map(int, input().split())
 arr = list(map(int, input().split()))
 answer = 0
-back_tracking(0, 0) # 수열의 첫 번째 원소를 포함하는 부분수열과 포함하지 않는 부분수열에 대해 순차적으로 조건을 만족하는지 확인함
+back_tracking(0, 0)  # 수열의 첫 번째 원소를 포함하는 부분수열과 포함하지 않는 부분수열에 대해 순차적으로 조건을 만족하는지 확인함
 print(answer)
