@@ -25,7 +25,7 @@ for tc in range(1, T + 1):
 
     print(f'#{tc} {result}')
 
-#
+# 다른 풀이
 def find_p(N, M, arr):
     for i in range(N):
         for j in range(N-M+1):
