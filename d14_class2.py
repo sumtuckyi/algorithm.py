@@ -25,7 +25,7 @@ def subset(index, total, arr):
     global cnt
     if total > 10:
         return
-    if index == len(my_set)-1:
+    if index == len(my_set):
         if total == 10:
             cnt += 1
             cases.append(arr.copy())
