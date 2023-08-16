@@ -60,7 +60,8 @@
 #                 total += cnt
 #         return total
 
-
+# 카드의 입력값 내에서의 카드의 순서와 관계없이 조건이 동일하다면 동일한 경우의 수가 출력되어야 함
+# 카드는 조건만 충족한다면 같은 번호도 연속으로 뽑을 수 있음
 card = list(input())
 path = [0] * 4  # 카드를 총 4장 뽑는 경우
 cnt = 0
@@ -70,14 +71,17 @@ def card_cnt(level):
     # 4장의 카드를 뽑은 경우에 경우의 수 증가
     if level == 4:
         cnt += 1
+        print(path)
         return  # 함수 스택에서 바로 아래의 스택에서 호출된 함수로 되돌아간다.
 
-    for i in range(5):  # 5개의 카드 중 하나를 선택
+    for i in range(len(card)):  # 전체카드 중 각 level마다 하나를 선택
         path[level] = card[i]  # level은 함수 재귀 호출시마다 1씩 증가
-        # 백트래킹 기법, 연속으로 뽑는 카드의 차이가 4 이상이면 더이상 반복문을 수행하지 않고(즉 다음에 올 카드를 고려하는 과정을 생략) 다음 카드를 선택(다음 반복으로 넘어감)
-        if int(path[level]) - int(path[level-1]) >= 4:  # level이 0이면 path[-1]과 대소를 비교하게됨..
+        # 백트래킹 기법, 연속으로 뽑는 카드의 차이가 4 이상이면 해당 카드를 선택하는 경우는 버리고 바로 다음 카드를 선택하는 경우를 고려함
+        # level이 0이면 path[-1](그 값은 0임)과 대소를 비교하게됨.. 그래서 level이 0이 아닌 경우에 한해 대소를 비교
+        # level이 0인 경우는 기존에 뽑은 카드가 없으므로 제약조건을 고려하지 않아도 됨
+        if level and (int(path[level]) - int(path[level-1]) >= 4):  # 직전에 뽑은 카드보다 현재 뽑으려는 카드가 4이상 큰 경우
             continue
-        if int(path[level-1]) - int(path[level]) >= 4:
+        if level and (int(path[level-1]) - int(path[level]) >= 4):  # 직전에 뽑은 카드보다 현재 뽑으려는 카드가 4이상 작은 경우
             continue
         card_cnt(level + 1)  # 깊이를 추가하여 함수의 코드 블럭을 실행하고 작업이 완료되면 다시 작업 스택 최상단의 함수로 돌아옴
 

@@ -1,12 +1,13 @@
-def back_tracking(start):  # 시작점을 인자로 전달
+def back_tracking(start):  # 시작점(리스트)을 인자로 전달
     global result
-    if maze[start[0]][start[1]] == '3':
+    if maze[start[0]][start[1]] == '3':  # 탐색을 시작할 기준점이 도착점이 되면 함수를 종료
         result = 1
         return
+    # 종료조건이 참이 아닌 경우에 수행할 내용
     stack.append(start)
     x, y = start
     for i in range(4):  # 우하상좌 순으로 탐색
-        # 범위 내에 있고 벽이 아닌 경우
+        # 범위 내에 있고 벽(1)이 아닌 경우
         if 0 <= x+d[i][0] < N and 0 <= y+d[i][1] < N and maze[x+d[i][0]][y+d[i][1]] != '1':
             # 아직 방문하지 않은 지점인 경우
             if [x + d[i][0], y + d[i][1]] not in stack:
@@ -33,3 +34,33 @@ for tc in range(1, T + 1):
     result = 0
     back_tracking([a, b])
     print(f'#{tc} {result}')
+
+
+#
+def maze():
+    while stack:
+        y, x = stack.pop()
+        arr[y][x] == -1  # 지나간 길 표시
+        for i in range(4):
+            ny = y + dy[i]
+            nx = x + dx[i]
+            if 0 <= ny < N and 0 <= nx < N:
+                if arr[ny][nx] == 3:
+                    return 1
+                elif arr[ny][nx] == 0:  # 지나간 길은 -1로 표시되기 때문에 탐색하지 않는다.
+                    stack.append((ny, nx))
+    return 0
+
+
+T = int(input())
+for tc in range(1, T + 1):
+    N = int(input())
+    arr = [list(map(int, input()))for _ in range(N)]
+    dy = [0, 1, 0, -1]
+    dx = [1, 0, -1, 0]
+    for i in range(N):
+        for j in range(N):
+            if arr[i][j] == 2:
+                stack = [(i, j)]
+                break
+    print(f'#{tc} {maze()}')
