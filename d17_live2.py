@@ -28,9 +28,9 @@ rear = 0
 enq(1)
 enq(2)
 enq(3)
+print(cq, front)
 enq(4)
-enq(5)
+# enq(5)
 # enq(6)
 
-print(cq, front, rear)
-print(deq())
+print(cq, front)
