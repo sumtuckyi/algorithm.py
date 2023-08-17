@@ -50,10 +50,11 @@ def DFS(start, end):
         for next in range(1, V+1):
             if node[now][next] and not visited[next]:
                 stack.append(next)
-    if visited[end]: # 도착점을 방문하였다면
+    if visited[end]:  # 도착점을 방문하였다면
         return 1
     else:
         return 0
+
 
 for tc in range(1, T + 1):
     V, E = map(int, input().split())
