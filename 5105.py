@@ -1,3 +1,4 @@
+# 미로에서 도착점까지의 이동거리 구하기
 # T = int(input())
 #
 #
@@ -42,35 +43,38 @@
 # 다른 풀이
 direction = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
-def start():
+
+def start():  # 시작점을 찾는 함수
     for i in range(N):
         for j in range(N):
             if arr[i][j] == '2':
                 return i, j
 
+
 def bfs(y, x):
     queue = []
     queue.append((y, x))  # 시작 위치 큐에 추가
     visited[y][x] = 1  # 시작 위치 방문 표시
-    while queue:
-        cy, cx = queue.pop()
+    while queue:  # 큐가 비어있지 않은 경우
+        cy, cx = queue.pop()  # 큐의 첫번째 원소 반환
         # 도착 위치면 거리 반환
         if arr[cy][cx] == '3':
             return visited[cy][cx] - 2  # 시작과 끝지점은 제외
         for dy, dx in direction:  # 시작 위치를 기준으로 상하좌우 탐색
             ny = cy + dy
             nx = cx + dx
-            if 0 <= ny < N and 0 <= nx < N:
+            if 0 <= ny < N and 0 <= nx < N:  # 현재 정점의 인접 노드가 맵의 범위에 있고
                 # 아직 방문하지 않았고 벽이 아닌 경우라면
                 if arr[ny][nx] != '1' and visited[ny][nx] == 0:
-                    visited[ny][nx] = visited[cy][cx] + 1
-                    queue.append((ny, nx))
+                    visited[ny][nx] = visited[cy][cx] + 1  # 방문한 것으로 표시하고(이때는 현재까지의 이동거리를 함께)
+                    queue.append((ny, nx))  # 큐에 넣기
     return 0
+
 
 T = int(input())
 for tc in range(1, T + 1):
     N = int(input())
     arr = [list(input()) for _ in range(N)]
-    visited = [[0]*N for _ in range(N)]
+    visited = [[0]*N for _ in range(N)]  # 방문여부와 이동거리를 저장하기 위한 배열
     si, sj = start()
     print(f'#{tc} {bfs(si, sj)}')

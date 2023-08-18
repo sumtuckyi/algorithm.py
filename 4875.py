@@ -1,3 +1,5 @@
+# 미로에서 출발점과 도착점이 주어지면 탈출이 가능한지 판별하는 함수 
+
 def back_tracking(start):  # 시작점(리스트)을 인자로 전달
     global result
     if maze[start[0]][start[1]] == '3':  # 탐색을 시작할 기준점이 도착점이 되면 함수를 종료
