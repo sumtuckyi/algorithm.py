@@ -1,5 +1,0 @@
-from itertools import permutations
-
-T = int(input())
-
-for tc in range(1, T + 1):
