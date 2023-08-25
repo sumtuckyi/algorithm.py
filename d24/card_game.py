@@ -4,19 +4,26 @@
 # 12이면 3*i일 때 i는 0부터 3까지 12//4
 # 3자리씩 검토하다가 중복카드가 등장하면 바로 return
 
-
-def check(data):  # 중복 확인 함수
-    n = len(data)//3
-    c_dup = set()  # 중복확인용
-    for i in range(n):
-        if data[i*3:i*3+3] in c_dup:  # 이미 가진 카드인 경우
+# 중복카드 여부를 확인할 때 set()를 만들어서 입력받은 카드 수와 세트의 길이를 비교하여 중복여부를 거를 수 있음
+def check(data):  # 중복카드가 있는지 확인
+    for i in range(n // 3):  # 카드의 수만큼 확인
+        if data[i*3:i*3+3] in dup:
             return 0
         else:
-            c_dup.add(data[i*3:i*3+3])
+            dup.append(data[i*3:i*3+3])
     return 1
 
 
 T = int(input())
 for tc in range(1, T + 1):
     cards = input()
-    print(check(cards))
+    n = len(cards)
+    dup = []
+    # 초기화시 d = {'S': 13, 'D': 13, 'H': 13, 'C': 13}으로 하면 카드 체크시마다 빼주면 됨
+    d = {'S': 0, 'D': 0, 'H': 0, 'C': 0}
+    if check(cards):  # 중복 카드가 없으면
+        for card in dup:
+            d[card[0]] += 1
+        print(f'#{tc}', 13 - d['S'], 13 - d['D'], 13 - d['H'], 13 - d['C'])
+    else:
+        print(f'#{tc} ERROR')
