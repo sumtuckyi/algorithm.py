@@ -10,9 +10,9 @@ W = 2
 
 def change(x, y, wob, N):
     b[y-1][x-1] = wob  # 보드에 돌 놓기
-    dx, dy = x-1, y-1  # 기준점
     # 놓은 돌과 같은 색의 돌을 만날 때까지 반복
     for c, d in coordinations:  # 8방향으로 탐색
+        dx, dy = x-1, y-1  # 기준점(다른 방향을 탐색하기 전에 기준점 초기화)
         dy, dx = dy + c, dx + d
         temp = []  # 포위한 돌의 좌표를 저장
         while 0 <= dx < N and 0 <= dy < N and b[dy][dx] != wob:  # 범위 내에 있고 놓은 돌과 같은 색이 아닌 한
