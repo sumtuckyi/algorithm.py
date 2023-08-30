@@ -112,7 +112,8 @@ outout
 #             cnt += 1
 # print(cnt)
 
-
+n, m = map(int, input().split())
+numbers = list(map(int, input().split()))
 high, low = 0, 0  # 투 포인터
 while True:
     if sum >= m or high == n:  # 합이 타겟보다 크거나 같다면
