@@ -28,7 +28,8 @@ for tc in range(1, T+1):
 
 
 
-#
+# 고객 집의 가능한 모든 방문순서를 확인
+# N은 원소의 개수, 이하 함수의 경우에는 집합의 원소 개수와 동일한 길이(level)의 순열을 생성
 def back_tracking(level, total):
     global min_v
     if level == N:
