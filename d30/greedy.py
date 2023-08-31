@@ -48,8 +48,13 @@
 #         cnt += 1  # 사용한 테이프의 개수 갱신
 
 
+<<<<<<< HEAD
 # 회의실 문제
 # 동적 프로그래밍 이용 풀이(LIS)
+=======
+#
+
+>>>>>>> origin/master
 
 N = int(input())
 lst = []
@@ -70,6 +75,7 @@ for i in range(N):
         dp[i] = max(temp) + 1
     else:  # 리스트가 비어있다면
         dp[i] = 0
+<<<<<<< HEAD
 print(max(dp)+1)
 
 
@@ -107,3 +113,6 @@ for i in range(1, N+1):
         j = i
 print(s)
 print(len(s))
+=======
+print(max(dp)+1)
+>>>>>>> origin/master
