@@ -1,3 +1,4 @@
+# 중복 문자열 제거
 T = int(input())
 
 for tc in range(1, T + 1):
